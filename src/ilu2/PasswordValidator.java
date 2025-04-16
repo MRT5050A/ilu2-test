@@ -16,8 +16,21 @@ public class PasswordValidator {
 				return false;
 			}
 			else {
-				return true;
+				if (isOnlyDigit(password)) {
+					return true;
+				} else return false;
 			}
 		}
+	}
+	
+	
+	
+	private boolean isOnlyDigit(String password) {
+		try {
+			Integer.parseInt(password);
+		} catch (NumberFormatException e) {
+			return false;
+		}
+		return true;
 	}
 }

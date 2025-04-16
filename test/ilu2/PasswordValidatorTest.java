@@ -27,11 +27,6 @@ class PasswordValidatorTest {
 
 	
 	@Test
-	void testPlein() {
-		assertTrue(pv.validate("motdepasse"));
-	}
-	
-	@Test
 	void testMoinsDeHuit() {
 		assertFalse(pv.validate("abc"));
 	}
@@ -39,6 +34,21 @@ class PasswordValidatorTest {
 	@Test
 	void testPlusDe13() {
 		assertFalse(pv.validate("abcdefghijklmnopqrstuvwxyz"));
+	}
+	
+	@Test
+	void testAvecLettres() {
+		assertFalse(pv.validate("abcdefghij"));
+	}
+	
+	@Test
+	void testAvecLettresEtChiffres() {
+		assertFalse(pv.validate("12345678a"));
+	}
+	
+	@Test
+	void testAvecChiffres() {
+		assertTrue(pv.validate("123456789"));
 	}
 	
 }
