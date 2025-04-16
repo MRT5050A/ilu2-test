@@ -32,9 +32,13 @@ class PasswordValidatorTest {
 	}
 	
 	@Test
-	void TestMoinsDeHuit() {
+	void testMoinsDeHuit() {
 		assertFalse(pv.validate("abc"));
 	}
 	
+	@Test
+	void testPlusDe13() {
+		assertFalse(pv.validate("abcdefghijklmnopqrstuvwxyz"));
+	}
 	
 }
