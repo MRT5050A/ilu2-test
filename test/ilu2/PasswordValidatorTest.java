@@ -72,4 +72,11 @@ class PasswordValidatorTest {
 		pv = new PasswordValidator(chocking);
 		assertFalse(pv.validate("1280801789"));
 	}
+	
+	@Test
+	void testChockingVide() {
+		String[] chocking = {};
+		pv = new PasswordValidator(chocking);
+		assertTrue(pv.validate("666666666"));
+	}
 }
