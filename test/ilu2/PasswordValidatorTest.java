@@ -51,4 +51,14 @@ class PasswordValidatorTest {
 		assertTrue(pv.validate("123456789"));
 	}
 	
+	@Test
+	void testDateDeNaissance() {
+		assertFalse(pv.validate("66631122000", "31122000"));
+	}
+	
+	@Test
+	void testSansDateDeNaissance() {
+		assertTrue(pv.validate("123456789", "31122000"));
+	}
+	
 }

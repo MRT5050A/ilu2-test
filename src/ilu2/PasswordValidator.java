@@ -8,22 +8,35 @@ public class PasswordValidator {
 	}
 
 	public boolean validate(String password) {
-		if (password == null || password.isEmpty()) {
-			return false;
-		}
-		else {
-			if (password.length()<8 || password.length()>13) {
-				return false;
-			}
-			else {
+		if (!isEmpty(password)) {
+			if (isGoodLength(password)) {
 				if (isOnlyDigit(password)) {
 					return true;
-				} else return false;
+				}
 			}
 		}
+		
+		return false;
 	}
 	
+	public boolean validate(String password, String birthDate) {
+		if (isBirthDateIn(password, birthDate)) {
+			return false;
+		}
+		return validate(password);
+	}
 	
+	private boolean isBirthDateIn(String password, String birthDate) {
+		return (password.contains(birthDate));
+	} 
+	
+	private boolean isEmpty(String password) {
+		return password == null || password.isEmpty();
+	}
+	
+	private boolean isGoodLength(String password) {
+		return password.length()>8 && password.length()<13;
+	}
 	
 	private boolean isOnlyDigit(String password) {
 		try {
