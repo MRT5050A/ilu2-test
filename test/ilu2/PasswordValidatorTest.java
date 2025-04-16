@@ -61,4 +61,8 @@ class PasswordValidatorTest {
 		assertTrue(pv.validate("123456789", "31122000"));
 	}
 	
+	@Test
+	void test666In() {
+		assertFalse(pv.validate("1234566678"));
+	}
 }

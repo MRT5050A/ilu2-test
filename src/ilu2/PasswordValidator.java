@@ -11,7 +11,9 @@ public class PasswordValidator {
 		if (!isEmpty(password)) {
 			if (isGoodLength(password)) {
 				if (isOnlyDigit(password)) {
-					return true;
+					if (!is666In(password)) {
+						return true;
+					}
 				}
 			}
 		}
@@ -24,6 +26,10 @@ public class PasswordValidator {
 			return false;
 		}
 		return validate(password);
+	}
+	
+	private boolean is666In(String password) {
+		return password.contains("666");
 	}
 	
 	private boolean isBirthDateIn(String password, String birthDate) {
