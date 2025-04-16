@@ -12,7 +12,12 @@ public class PasswordValidator {
 			return false;
 		}
 		else {
-			return true;
+			if (password.length()<8) {
+				return false;
+			}
+			else {
+				return true;
+			}
 		}
 	}
 }

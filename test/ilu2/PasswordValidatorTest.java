@@ -30,4 +30,11 @@ class PasswordValidatorTest {
 	void testPlein() {
 		assertTrue(pv.validate("motdepasse"));
 	}
+	
+	@Test
+	void TestMoinsDeHuit() {
+		assertFalse(pv.validate("abc"));
+	}
+	
+	
 }
